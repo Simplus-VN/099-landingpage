@@ -1,9 +1,10 @@
+import { Button } from "antd";
 import React from "react";
 
 const HeaderComponent: React.FC = () => {
   return (
     <header>
-      <h1>Header</h1>
+      <Button type="primary">Header</Button>
     </header>
   );
 };
