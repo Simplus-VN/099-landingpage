@@ -1,14 +1,16 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Button, Image } from "antd";
 import {Navigation, Pagination} from "swiper/modules";
 import { useEffect } from "react";
+import ModalRegisterCollab from "../components/ModalRegisterCollab.tsx";
 
 // BannerComponent component
 const BannerComponent: React.FC = () => {
 
+    const [isOpenModalRegisterCollab, setIsOpenModalRegisterCollab] = useState(false);
     const swiperRef = useRef(null);
 
     useEffect(() => {
@@ -112,7 +114,7 @@ const BannerComponent: React.FC = () => {
                                 </h2>
                                 <h3 className='xl:mt-6 text-secondary xl:text-[28px] xl:leading-8 text-base sm:mt-4 mt-6'>Đăng ký để trở thành Cộng tác viên bán hàng của SimPlus</h3>
                                 <a className='xl:mt-12 block sm:w-fit sm:mt-4 mt-8 w-full'>
-                                    <Button className='!text-primary !bg-white rounded-corner-03 border-none xl:h-14 xl:text-2xl xl:px-5 xl:py-3 flex items-center justify-center sm:w-fit w-full text-xl sm:text-base py-3 h-[52px] sm:h-fit sm:py-2'>Đăng ký ngay</Button>
+                                    <Button onClick={() => setIsOpenModalRegisterCollab(true)} className='!text-primary !bg-white rounded-corner-03 border-none xl:h-14 xl:text-2xl xl:px-5 xl:py-3 flex items-center justify-center sm:w-fit w-full text-xl sm:text-base py-3 h-[52px] sm:h-fit sm:py-2'>Đăng ký ngay</Button>
                                 </a>
                             </div>
                             <div className='flex-1  flex-shrink-0'>
@@ -122,6 +124,8 @@ const BannerComponent: React.FC = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
+
+            <ModalRegisterCollab isOpen={isOpenModalRegisterCollab} setIsOpen={setIsOpenModalRegisterCollab} />
         </div>
     );
 };

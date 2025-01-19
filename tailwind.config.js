@@ -9,6 +9,7 @@ export default {
       },
       borderRadius: {
         'corner-03': '8px',
+        'corner-04': '12px',
       },
       backgroundColor: {
         primary: '#FFC426'
