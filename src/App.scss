@@ -6,3 +6,105 @@
 body {
     font-family: 'Manrope', sans-serif;
 }
+
+footer {
+    .company-text {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
+
+        @media (max-width: 1024px) {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    }
+
+    .information-line {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+
+        @media (max-width: 1024px) {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .key-text {
+            color: rgba(98, 109, 124, 1)
+        }
+
+        .value-text {
+            color: #000;
+        }
+    }
+
+    .copyright {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: rgba(98, 109, 124, 1);
+
+        @media (max-width: 1024px) {
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+    }
+
+    .contact {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
+        color: #000;
+
+        @media (max-width: 1024px) {
+            margin-right: 10px;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 28px;
+        }
+
+    }
+
+    .sub-contact {
+        font-size: 16px;
+        font-weight: 600;
+
+        line-height: 24px;
+
+        @media (max-width: 1024px) {
+            margin-right: 10px;
+            margin-left: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+    }
+
+    .support-line {
+        .support-key {}
+
+        @media (max-width: 1024px) {
+            margin-right: 10px;
+            margin-left: 10px;
+
+        }
+
+
+        .support-value {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 28px;
+            color: rgba(50, 89, 232, 1);
+
+            @media (max-width: 1024px) {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+            }
+        }
+    }
+
+}
