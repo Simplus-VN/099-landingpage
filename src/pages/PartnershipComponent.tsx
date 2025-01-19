@@ -9,7 +9,7 @@ const PartnershipComponent: React.FC = () => {
   return <div>
     <div className='text-center lg:pt-16 lg:pb-10 py-8'>
       <h3 className=' lg:text-[56px] lg:leading-[72px] text-[40px] leading-[52px] font-semibold text-primary'>Quan hệ đối tác</h3>
-      <p className='lg:mt-8 mt-6 w-full max-w-[972px] text-secondary lg:text-lg text-base'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      <p className='lg:mt-8 mt-6 w-full max-w-[972px] text-secondary lg:text-lg text-bas md:mx-auto'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
         voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
@@ -36,7 +36,7 @@ const PartnershipComponent: React.FC = () => {
       </div>
     </div>
 
-    <div className='flex md:gap-8 items-center lg:pt-10 md:pt-8 md:flex-row-reverse flex-col gap-6  md:mt-20 md:pb-16 mt-8 pt-0'>
+    <div className='flex md:gap-8 items-center lg:pt-10 md:flex-row-reverse flex-col gap-6  md:mt-20 md:pb-16 mt-8 pt-0'>
       <div className='flex-1 flex-shink-0'>
         <h4 className='text-[40px] leading-[52px] font-semibold text-primary'>Lorem ipsum</h4>
         <div className='mt-6 text-secondary text-base'>
