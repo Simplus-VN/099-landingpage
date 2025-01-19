@@ -1,10 +1,12 @@
-import { ConfigProvider, message } from "antd";
+import { ConfigProvider, message, App as AntdApp } from "antd";
 import "./App.scss";
+import './assets/scss/style.scss';
 import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import BannerComponent from "./pages/BannerComponent";
 import PartnershipComponent from "./pages/PartnershipComponent";
 import SimListComponent from "./pages/SimList/SimListComponent";
+
 
 type ThemeData = {
   borderRadius: number;
@@ -60,13 +62,15 @@ function App() {
         },
       }}
     >
-      <HeaderComponent />
-      <BannerComponent />
-      <div className="container mx-auto">
-        <SimListComponent />
-        <PartnershipComponent />
-      </div>
-      <FooterComponent />
+      <AntdApp>
+        <HeaderComponent />
+        <BannerComponent />
+        <div className="container mx-auto px-4">
+          <SimListComponent />
+          <PartnershipComponent />
+        </div>
+        <FooterComponent />
+      </AntdApp>
     </ConfigProvider>
   );
 }
