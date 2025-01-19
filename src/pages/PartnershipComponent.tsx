@@ -89,7 +89,7 @@ const PartnershipComponent: React.FC = () => {
         </div>
       </div>
 
-      <div className="pt-16 relative ">
+      <div className="pt-16 relative min-h-[320px]">
         <Image
           src={getAssetPath("/img/register-collab-bg.png")}
           preview={false}

@@ -117,7 +117,9 @@ const FooterComponent: React.FC = () => {
                   fill="black"
                 />
               </svg>
-              <div className="support-value">19008699</div>
+              <a href="tel:19008699" className="support-value">
+                19008699
+              </a>
             </div>
             <div className="support-line flex gap-[10px] items-center max-lg:mb-[8px]">
               <svg
@@ -140,7 +142,9 @@ const FooterComponent: React.FC = () => {
                   fill="black"
                 />
               </svg>
-              <div className="support-value">support@simplus.vn</div>
+              <a href="mailto:support@simplus.vn" className="support-value">
+                support@simplus.vn
+              </a>
             </div>
           </div>
         </div>
