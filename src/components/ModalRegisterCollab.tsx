@@ -2,6 +2,7 @@ import {Button, DatePicker, Form, Input, Modal, App} from 'antd';
 import {useState } from 'react';
 import {FORM_RULES} from "../utils/constants.ts";
 import {registerCollabApi} from "../apis/registerCollabApi.ts";
+import dayjs from "dayjs";
 
 interface ModalRegisterCollabProps {
     isOpen: boolean;

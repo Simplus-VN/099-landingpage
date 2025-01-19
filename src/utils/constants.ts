@@ -1,4 +1,6 @@
-export const FORM_RULES = {
+import { Rule } from "antd/es/form";
+
+export const FORM_RULES: Record<string, Rule[]> = {
     NAME: [
         {
             required: true,

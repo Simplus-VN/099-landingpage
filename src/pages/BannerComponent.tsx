@@ -11,7 +11,7 @@ import ModalRegisterCollab from "../components/ModalRegisterCollab.tsx";
 const BannerComponent: React.FC = () => {
 
     const [isOpenModalRegisterCollab, setIsOpenModalRegisterCollab] = useState(false);
-    const swiperRef = useRef(null);
+    const swiperRef = useRef<any>(null);
 
     useEffect(() => {
         const paginationEl = document.querySelector('.swiper-pagination');
