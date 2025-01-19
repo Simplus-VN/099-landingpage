@@ -32,7 +32,7 @@ const BannerComponent: React.FC = () => {
         "-top-0.5",
         "mr-4"
       );
-      prevButton.setAttribute("src", "/img/prev-slide.svg");
+      prevButton.setAttribute("src", getAssetPath("/img/prev-slide.svg"));
       prevButton.addEventListener("click", () => {
         if (swiperRef.current) {
           swiperRef.current.swiper.slidePrev();
@@ -54,7 +54,7 @@ const BannerComponent: React.FC = () => {
         "-top-0.5",
         "ml-4"
       );
-      nextButton.setAttribute("src", "/img/next-slide.svg");
+      nextButton.setAttribute("src", getAssetPath("/img/next-slide.svg"));
       nextButton.addEventListener("click", () => {
         if (swiperRef.current) {
           swiperRef.current.swiper.slideNext();
