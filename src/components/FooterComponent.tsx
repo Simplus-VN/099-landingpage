@@ -5,7 +5,7 @@ const FooterComponent: React.FC = () => {
     <footer>
       <div className="flex bg-[rgba(255, 255, 255, 1)] my-[36px]">
         <div className="container mx-auto flex gap-[32px] max-lg:flex-wrap max-lg:gap-[16px]">
-          <div>
+          <div className="basis-1/2 max-lg:basis-full">
             <div className="flex gap-[8px] items-center mb-[16px] max-lg:mx-[10px]">
               <img className="h-[40px]" src="/main-logo.png" alt="logo" />
               <svg
