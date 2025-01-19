@@ -27,7 +27,7 @@ const FooterComponent: React.FC = () => {
               </svg>
               <img
                 className="h-[40px]"
-                src="/gmobile-logo.png"
+                src={getAssetPath("/gmobile-logo.png")}
                 alt="gmobile-logo"
               />
             </div>
