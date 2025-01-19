@@ -1,4 +1,5 @@
 import React from "react";
+import { getAssetPath } from "../utils/path";
 
 const FooterComponent: React.FC = () => {
   return (
@@ -7,7 +8,11 @@ const FooterComponent: React.FC = () => {
         <div className="container mx-auto flex gap-[32px] max-lg:flex-wrap max-lg:gap-[16px]">
           <div className="basis-1/2 max-lg:basis-full">
             <div className="flex gap-[8px] items-center mb-[16px] max-lg:mx-[10px]">
-              <img className="h-[40px]" src="/main-logo.png" alt="logo" />
+              <img
+                className="h-[40px]"
+                src={getAssetPath("/main-logo.png")}
+                alt="logo"
+              />
               <svg
                 width="32"
                 height="32"
