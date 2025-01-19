@@ -85,8 +85,8 @@ const BannerComponent: React.FC = () => {
                         <Image src="/img/Background.png" preview={false} alt='banner' className='hidden sm:block' />
                         <Image src="/img/Background-mb.png" preview={false} alt='banner' className='block sm:hidden' />
                         <div className='absolute sm:top-[calc(66/740*100%)] top-[calc(32/780*100%)] left-1/2 -translate-x-1/2 flex items-center gap-8 w-full md:px-16 px-4 sm:px-8  flex-col sm:flex-row'>
-                            <div className='text-white font-bold flex-1 flex-shrink-0 w-full text-center sm:text-left'>
-                                <h2 className='xl:text-[56px] xl:leading-[72px] lg:text-4xl text-black sm:text-2xl text-4xl'>Simplus - Đại lý Gmobile
+                            <div className='text-white flex-1 flex-shrink-0 w-full text-center sm:text-left font-semibold'>
+                                <h2 className='xl:text-[56px] xl:leading-[72px] lg:text-4xl text-black sm:text-2xl text-4xl '>Simplus - Đại lý Gmobile
                                     <br className='xl:hidden 2xl:block hidden' />
                                     {' '}
                                     số 1 Việt Nam
@@ -108,7 +108,7 @@ const BannerComponent: React.FC = () => {
                     <div className='relative'>
                         <Image src="/img/Background-2.png" preview={false} alt='banner' className='hidden sm:block' />
                         <Image src="/img/Background-2-mb.png" preview={false} alt='banner' className='block sm:hidden' />
-                        <div className='absolute sm:top-0 top-[calc(32/780*100%)] left-1/2 -translate-x-1/2 flex items-center gap-8 w-full md:px-16 px-4 sm:px-8  flex-col sm:flex-row bottom-0'>
+                        <div className='absolute font-semibold sm:top-0 top-[calc(32/780*100%)] left-1/2 -translate-x-1/2 flex items-center gap-8 w-full md:px-16 px-4 sm:px-8  flex-col sm:flex-row bottom-0'>
                             <div className='text-white font-bold flex-1 flex-shrink-0 w-full text-center sm:text-left'>
                                 <h2 className='xl:text-[56px] xl:leading-[72px] lg:text-4xl text-black sm:text-2xl text-4xl'>Simplus tuyển dụng
                                 </h2>
