@@ -1,5 +1,6 @@
 import { ConfigProvider, message } from "antd";
 import "./App.scss";
+import './assets/scss/style.scss';
 import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import BannerComponent from "./pages/BannerComponent";

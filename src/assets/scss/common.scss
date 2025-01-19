@@ -1,0 +1,7 @@
+.swiper-pagination-bullet {
+  @apply w-4 h-4 bg-white rounded-full opacity-100 transition-all  !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply w-8 h-4 bg-primary rounded-2xl transition-all !important;
+}
