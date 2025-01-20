@@ -100,7 +100,7 @@ const PartnershipComponent: React.FC = () => {
           alt="banner"
           className="rounded-corner-04 w-full block md:hidden "
         />
-        <div className="absolute lg:top-[calc(128/368*100%)] top-[calc(64/376*100%)] sm:top-[25%] text-center w-full px-4 md:px-8">
+        <div className="absolute lg:top-[calc(128/368*100%)] text-center w-full px-4 md:px-8 top-16 bottom-0 flex flex-col items-center justify-center md:bottom-16">
           <p className="xl:text-[40px] xl:leading-[52px] md:text-3xl font-semibold text-[36px] leading-[44px]">
             Cộng tác với Simplus ngay hôm nay!
           </p>
