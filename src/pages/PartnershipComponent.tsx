@@ -90,19 +90,17 @@ const PartnershipComponent: React.FC = () => {
       </div>
 
       <div className="pt-16 relative min-h-[320px]">
-        <Image
+        <img
           src={getAssetPath("/img/register-collab-bg.png")}
-          preview={false}
           alt="banner"
           className="rounded-corner-04 w-full hidden md:block "
         />
-        <Image
-          src={getAssetPath("/img/register-collab-bg.png")}
-          preview={false}
+        <img
+          src={getAssetPath("/img/register-collab-bg-mb.png")}
           alt="banner"
           className="rounded-corner-04 w-full block md:hidden "
         />
-        <div className="absolute md:top-[calc(128/368*100%)] top-[calc(64/376*100%)] sm:top-[20%] text-center w-full px-4 md:px-8">
+        <div className="absolute lg:top-[calc(128/368*100%)] top-[calc(64/376*100%)] sm:top-[25%] text-center w-full px-4 md:px-8">
           <p className="xl:text-[40px] xl:leading-[52px] md:text-3xl font-semibold text-[36px] leading-[44px]">
             Cộng tác với Simplus ngay hôm nay!
           </p>
@@ -112,7 +110,7 @@ const PartnershipComponent: React.FC = () => {
           </p>
           <Button
             onClick={() => setIsOpenModalRegisterCollab(true)}
-            className="mx-auto xl:mt-8 mt-8 sm:mt-0 h-12 w-full lg:mt-4 !text-primary !bg-white rounded-corner-03 border-none xl:h-14 xl:text-2xl xl:px-5 xl:py-3 flex items-center justify-center sm:w-fit text-xl sm:text-base py-3 sm:h-fit sm:py-2"
+            className="mx-auto xl:mt-8 mt-8 sm:mt-4 md:mt-0 h-12 w-full md:mt-2 lg:mt-4 !text-primary !bg-white rounded-corner-03 border-none xl:h-14 xl:text-2xl xl:px-5 xl:py-3 flex items-center justify-center sm:w-fit text-xl sm:text-base py-3 sm:h-fit sm:py-2"
           >
             Đăng ký ngay
           </Button>
