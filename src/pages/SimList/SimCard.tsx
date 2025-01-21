@@ -12,7 +12,7 @@ export const SimCard: React.FC<SimCardProps> = ({
   onClickSim
 }) => {
   return (
-    <div onClick={onClickSim} className="flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] min-w-[240px] w-[333px] max-md:px-5">
+    <div onClick={onClickSim} className="cursor-pointer flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] w-[333px] max-md:px-5 max-md:max-w-[166px]">
       <img
         loading="lazy"
         src={imageUrl}
@@ -27,14 +27,14 @@ export const SimCard: React.FC<SimCardProps> = ({
             alt=""
             className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
           />
-          <div className="self-stretch px-1 my-auto">
+          <div className="self-stretch px-1 my-auto max-md:text-xs">
             Tiết kiệm ₫ {discount.toLocaleString()}{" "}
           </div>
         </div>
-        <div className="mt-3 text-4xl font-semibold leading-none text-black">
+        <div className="mt-3 text-4xl max-md:text-2xl font-semibold leading-none text-black">
           {phoneNumber}
         </div>
-        <div className="flex flex-col mt-3 w-full text-sm font-semibold leading-none">
+        <div className="flex flex-col mt-3 w-full text-sm max-md:text-xs font-semibold leading-none">
           <div className="flex gap-2 items-start w-full">
             <div className="text-[#626D7C]">Thương hiệu</div>
             <div className="flex-1 shrink text-[#3259E8] basis-0">
@@ -43,10 +43,10 @@ export const SimCard: React.FC<SimCardProps> = ({
           </div>
         </div>
         <div className="flex flex-col justify-center mt-3 w-full">
-          <div className="text-2xl font-semibold leading-none text-[#C32518]">
+          <div className="text-2xl max-md:text-xl font-semibold leading-none text-[#C32518]">
             ₫ {currentPrice.toLocaleString()}
           </div>
-          <div className="mt-1 text-sm font-medium leading-none text-[#4C5563] line-through">
+          <div className="mt-1 text-sm max-md:text-xs font-medium leading-none text-[#4C5563] line-through">
             ₫ {originalPrice.toLocaleString()}
           </div>
         </div>

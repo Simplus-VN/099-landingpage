@@ -1,111 +1,132 @@
 @font-face {
-    font-family: 'Manrope';
-    src: url('./assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-VariableFont_wght.ttf") format("truetype");
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
+}
+
+.desc-package {
+  ul {
+    list-style: disc;
+    padding-left: 10px;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.bg-slate-200 {
+  background: rgb(226 232 240) !important;
+  background-color: rgb(226 232 240) !important;
 }
 
 footer {
-    .company-text {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 28px;
+  .company-text {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
 
-        @media (max-width: 1024px) {
-            margin-right: 10px;
-            margin-left: 10px;
-        }
+    @media (max-width: 1024px) {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+
+  .information-line {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+
+    @media (max-width: 1024px) {
+      margin-right: 10px;
+      margin-left: 10px;
     }
 
-    .information-line {
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 16px;
-
-        @media (max-width: 1024px) {
-            margin-right: 10px;
-            margin-left: 10px;
-        }
-
-        .key-text {
-            margin-right: 5px;
-            color: rgba(98, 109, 124, 1)
-        }
-
-        .value-text {
-            color: #000;
-        }
+    .key-text {
+      margin-right: 5px;
+      color: rgba(98, 109, 124, 1);
     }
 
-    .copyright {
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 20px;
-        color: rgba(98, 109, 124, 1);
+    .value-text {
+      color: #000;
+    }
+  }
 
-        @media (max-width: 1024px) {
-            font-size: 12px;
-            line-height: 16px;
-        }
+  .copyright {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba(98, 109, 124, 1);
 
+    @media (max-width: 1024px) {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  .contact {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #000;
+
+    @media (max-width: 1024px) {
+      margin-right: 10px;
+      margin-left: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+  }
+
+  .sub-contact {
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 24px;
+
+    @media (max-width: 1024px) {
+      margin-right: 10px;
+      margin-left: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+
+  .support-line {
+    .support-key {
     }
 
-    .contact {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 28px;
-        color: #000;
-
-        @media (max-width: 1024px) {
-            margin-right: 10px;
-            margin-left: 10px;
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 28px;
-        }
-
+    @media (max-width: 1024px) {
+      margin-right: 10px;
+      margin-left: 10px;
     }
 
-    .sub-contact {
+    .support-value {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 28px;
+      color: rgba(50, 89, 232, 1);
+
+      @media (max-width: 1024px) {
         font-size: 16px;
-        font-weight: 600;
-
+        font-weight: 500;
         line-height: 24px;
-
-        @media (max-width: 1024px) {
-            margin-right: 10px;
-            margin-left: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 20px;
-        }
-
+      }
     }
-
-    .support-line {
-        .support-key {}
-
-        @media (max-width: 1024px) {
-            margin-right: 10px;
-            margin-left: 10px;
-
-        }
-
-
-        .support-value {
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 28px;
-            color: rgba(50, 89, 232, 1);
-
-            @media (max-width: 1024px) {
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 24px;
-            }
-        }
-    }
-
+  }
 }

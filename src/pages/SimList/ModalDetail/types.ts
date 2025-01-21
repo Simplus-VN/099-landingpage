@@ -15,7 +15,9 @@ export interface BenefitItemProps {
 }
 
 export interface ModalDetailProps {
-    data?: any;
+    packageList?: any;
+    flashSaleData?: any;
+    dataSimDetail?: any;
     isOpen: boolean;
     setIsOpen?: any;
 }

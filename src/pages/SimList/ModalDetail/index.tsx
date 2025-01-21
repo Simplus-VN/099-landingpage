@@ -1,159 +1,329 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import * as React from 'react';
-import { SimDetailRow } from './SimDetailRow';
-import { DropdownSelect } from './DropdownSelect';
-import { BenefitList } from './BenefitList';
-import { Modal } from 'antd';
-import { ModalDetailProps } from './types';
+import * as React from "react";
+import { DropdownSelect } from "./DropdownSelect";
+import { Modal, Select } from "antd";
+import { ModalDetailProps } from "./types";
+import { currencyConverter } from "../../../utils";
+import { useEffect, useRef, useState } from "react";
 
 export const ModalDetail: React.FC<ModalDetailProps> = ({
-  data,
+  dataSimDetail,
+  flashSaleData,
   isOpen,
   setIsOpen,
 }) => {
-  const simDetails = [
-    { label: "Thương hiệu", value: "Gmobile" },
-    { label: "Gói cước", value: "SP100, SP200, SP300 ..." },
-    { label: "Loại Sim", value: "Lorem ipsum" },
-    { label: "Loại thuê bao", value: "Trả trước" },
-    { label: "Giá cam kết", value: "₫ 0" }
-  ];
+  const [packageAttractiveSelected, setPackageAttractiveSelected] =
+    useState(null);
+  const [dataPackageAttractiveSelected, setDataPackageAttractiveSelected] =
+    useState<any>(null);
+  const [periodPackageAttractiveSelected, setPeriodPackageAttractiveSelected] =
+    useState<any>(null);
+  const [
+    dataPeriodPackageAttractiveSelected,
+    setDataPeriodPackageAttractiveSelected,
+  ] = useState<any>(null);
 
-  const benefits = [
-    { text: "Miễn phí 1.5 GB/ngày" },
-    { text: "Miễn phí các cuộc gọi nội mạng Viettel dưới 10 phút" },
-    { text: "Miễn phí 50 phút gọi ngoại mạng" },
-    { text: "Miễn phí gói Tv360" }
-  ];
+  const [packagePrice, setPackagePrice] = useState(
+    dataSimDetail?.package?.[0]?.discountPrice || 0
+  );
+
+  const [isPackageUnavailable, setIsPackageUnavailable] = useState(
+    dataSimDetail?.package?.[0]?.status === "unavailable"
+  );
+
+  useEffect(() => {
+    if (dataSimDetail?.package?.[0]?.name) {
+      setPackageAttractiveSelected(dataSimDetail?.package?.[0]?.name);
+    }
+    setPackagePrice(dataSimDetail?.package?.[0]?.discountPrice || 0);
+  }, [dataSimDetail]);
+
+  const handlePackageAttractive = (value: React.SetStateAction<null>) => {
+    setDataPackageAttractiveSelected([]);
+    setPackageAttractiveSelected(value);
+    setPeriodPackageAttractiveSelected(null);
+    setDataPeriodPackageAttractiveSelected(null);
+  };
+
+  const handleChangePeriodPackageAttractive = (
+    value: React.SetStateAction<null>
+  ) => {
+    setDataPeriodPackageAttractiveSelected(null);
+    setPeriodPackageAttractiveSelected(value);
+    if (dataPackageAttractiveSelected?.items?.length) {
+      const selected = dataPackageAttractiveSelected?.items.filter(
+        (x: { period: any }) => x.period === value
+      )?.[0];
+      if (selected && selected?.status !== "available") {
+        setIsPackageUnavailable(true);
+      }
+      setDataPeriodPackageAttractiveSelected(selected);
+    }
+  };
+
+  useEffect(() => {
+    if (packageAttractiveSelected) {
+      setDataPackageAttractiveSelected(
+        dataSimDetail?.availablePackages.filter(
+          (x: { name: any }) => x.name === packageAttractiveSelected
+        )?.[0]
+      );
+    }
+  }, [packageAttractiveSelected]);
 
   return (
     <Modal
       centered
-      open={true}
+      open={isOpen}
       footer={null}
       closeIcon={null}
-      closable={false}
       width={800}
+      onCancel={() => setIsOpen(false)}
     >
       <div className="flex items-start max-w-full">
         <div className="flex flex-wrap flex-auto gap-6 items-start self-end max-md:max-w-full">
           <img
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/ea45ecea2e7f4135e2c81c201340a7bb11f8ee86ba834065dc33c3e485a99850?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7"
+            src={"/099-landingpage/gmobile-img.png"}
             alt="Sim card preview"
-            className="object-contain rounded-md aspect-square w-[232px]"
+            className="object-contain rounded-md aspect-square w-[232px] max-md:w-full"
           />
-          <div className="flex flex-col flex-1 shrink basis-0 min-w-[240px] max-md:max-w-full">
+          <div className="flex flex-col flex-1 shrink basis-0 max-md:max-w-full">
             <div className="flex flex-col w-full max-md:max-w-full">
               <div className="text-4xl font-semibold leading-tight text-black max-md:max-w-full">
-                {data?.sim?.number}
+                {dataSimDetail?.sim?.number}
               </div>
-              {
-                data?.discount_price &&
-                <div className="flex overflow-hidden justify-center items-center self-start p-1 mt-4 text-sm font-semibold leading-none text-blue-600 bg-blue-200 rounded border border-indigo-300 border-solid">
+              {dataSimDetail?.discount_price && (
+                <div className="flex overflow-hidden justify-center items-center self-start p-1 my-[16px] text-sm font-semibold leading-none text-[#3259E8] bg-[#C8DBFF] rounded border border-[#9EBCFF] border-solid">
                   <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f60ddbfdf0ba29b41b25ed0576574762c785dc17c4d37ef768710092b9947e4a?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7"
+                    src="/099-landingpage/discount.svg"
                     alt=""
                     className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
                   />
                   <div className="self-stretch px-1 my-auto">
-                    Tiết kiệm ₫ {data?.price - data?.discount_price}
+                    Tiết kiệm ₫{" "}
+                    {dataSimDetail?.price - dataSimDetail?.discount_price}
                   </div>
                 </div>
-              }
+              )}
+              <div className="border-b border-solid pb-[24px] border-[#E2E5EB]">
+                {dataSimDetail?.sim?.sim_type === "attractive_sim" ? (
+                  <>
+                    <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
+                      <div className="text-[#626D7C]">Thương hiệu</div>
+                      <div className="flex-1 shrink text-black basis-0">
+                        Gmobile
+                      </div>
+                    </div>
+                    <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
+                      <div className="text-[#626D7C]">Loại Sim</div>
+                      <div className="flex-1 shrink text-black basis-0">
+                        {dataSimDetail?.labels?.[0]}
+                      </div>
+                    </div>
 
-              <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
-                <div className="text-gray-500">Thương hiệu</div>
-                <div className="flex-1 shrink text-black basis-0">{value}</div>
-              </div>
-              <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
-                <div className="text-gray-500">Loại Sim</div>
-                <div className="flex-1 shrink text-black basis-0">{value}</div>
+                    <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
+                      <div className="text-[#626D7C]">Loại thuê bao</div>
+                      <div className="flex-1 shrink text-black basis-0">
+                        {dataSimDetail?.sim?.msisdn_type === 0
+                          ? "Trả trước"
+                          : "Trả sau"}
+                      </div>
+                    </div>
+
+                    <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
+                      <div className="text-[#626D7C]">Giá cam kết</div>
+                      <div className="flex-1 shrink text-black basis-0">
+                        {currencyConverter(dataSimDetail?.sim?.price_term || 0)}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
+                      <div className="text-[#626D7C]">Thương hiệu</div>
+                      <div className="flex-1 shrink text-black basis-0">
+                        Gmobile
+                      </div>
+                    </div>
+                    {dataSimDetail?.sim?.sim_type !== "packaged_sim" && (
+                      <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
+                        <div className="text-[#626D7C]">Serial</div>
+                        <div className="flex-1 shrink text-black basis-0">
+                          {dataSimDetail?.sim?.serial || "19000792"}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
 
-              <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
-                <div className="text-gray-500">Loại thuê bao</div>
-                <div className="flex-1 shrink text-black basis-0">{value}</div>
+              <div className="flex gap-4 items-start mt-[24px] w-full font-semibold text-black max-md:max-w-full">
+                <div className="flex flex-col flex-1 shrink justify-center basis-0">
+                  <div className="text-sm leading-none mb-[4px]">Gói cước</div>
+                  <Select
+                    style={{ marginBottom: "15px" }}
+                    onChange={handlePackageAttractive}
+                    value={packageAttractiveSelected}
+                    placeholder="Gói cước"
+                    className="select-box"
+                    allowClear
+                    disabled={dataSimDetail?.sim?.sim_type !== "attractive_sim"}
+                  >
+                    {(dataSimDetail?.availablePackages || []).map(
+                      (item: any) => (
+                        <Select.Option
+                          key={item?.name}
+                          value={item?.name}
+                        >{`${item?.name}`}</Select.Option>
+                      )
+                    )}
+                  </Select>
+                </div>
+                <div className="flex flex-col flex-1 shrink justify-center basis-0">
+                  <div className="text-sm leading-none mb-[4px]">Thời hạn</div>
+                  <Select
+                    onChange={handleChangePeriodPackageAttractive}
+                    value={
+                      dataSimDetail?.sim?.sim_type === "attractive_sim"
+                        ? periodPackageAttractiveSelected
+                        : dataSimDetail?.package?.[0]?.period
+                    }
+                    placeholder="Thời hạn gói"
+                    className="select-box"
+                    disabled={dataSimDetail?.sim?.sim_type !== "attractive_sim"}
+                  >
+                    {(dataPackageAttractiveSelected?.items || []).map(
+                      (item: any) => (
+                        <Select.Option
+                          key={item?.period}
+                          value={item?.period}
+                        >{`${item?.period / 30} tháng`}</Select.Option>
+                      )
+                    )}
+                  </Select>
+                </div>
               </div>
 
-              <div className="flex gap-2 items-start mt-2 max-w-full w-[336px]">
-                <div className="text-gray-500">Giá cam kết</div>
-                <div className="flex-1 shrink text-black basis-0">{value}</div>
-              </div>
- 
-
-              <div className="flex overflow-hidden flex-col justify-center py-2 mt-4 w-full max-md:max-w-full">
-                <div className="flex gap-8 items-center w-full max-md:max-w-full">
-                  <div className="flex flex-1 shrink justify-center items-center self-stretch my-auto w-full basis-0 min-w-[240px] max-md:max-w-full">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/bb5b2f6dd7c1b77b777cbb1c0dd818926b88ec8275ca6205d39384b321884129?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7"
-                      alt=""
-                      className="object-contain flex-1 shrink self-stretch my-auto w-full aspect-[500] basis-0 min-w-[240px] max-md:max-w-full"
+              {isPackageUnavailable && (
+                <span className={"text-red"}>
+                  Thời hạn gói không được hỗ trợ
+                </span>
+              )}
+              <div className="border-b border-solid pb-[24px] border-[#E2E5EB]">
+                <div className="desc-package p-4 w-full text-xs font-medium leading-4 rounded-xl bg-slate-50 text-zinc-900 max-md:max-w-full">
+                  {dataPackageAttractiveSelected?.short_description && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          dataPackageAttractiveSelected?.short_description,
+                      }}
                     />
-                  </div>
+                  )}
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start mt-4 w-full font-semibold text-black max-md:max-w-full">
-                <DropdownSelect label="Gói cước" value="SP123" icon="https://cdn.builder.io/api/v1/image/assets/TEMP/4c3aed2987c83af74fc5ec43d1f649a239def21d74c72dd0e46f2ac31e8364c8?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7" />
-                <DropdownSelect label="Thời hạn" value="6 tháng" icon="https://cdn.builder.io/api/v1/image/assets/TEMP/4c3aed2987c83af74fc5ec43d1f649a239def21d74c72dd0e46f2ac31e8364c8?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7" />
-              </div>
-
-               <div className="p-4 mt-4 w-full text-xs font-medium leading-4 rounded-xl bg-slate-50 text-zinc-900 max-md:max-w-full">
-                  
-                </div>
-
-              <div className="flex overflow-hidden flex-col justify-center py-2 mt-4 w-full max-md:max-w-full">
-                <div className="flex gap-8 items-center w-full max-md:max-w-full">
-                  <div className="flex flex-1 shrink justify-center items-center self-stretch my-auto w-full basis-0 min-w-[240px] max-md:max-w-full">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/bb5b2f6dd7c1b77b777cbb1c0dd818926b88ec8275ca6205d39384b321884129?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7"
-                      alt=""
-                      className="object-contain flex-1 shrink self-stretch my-auto w-full aspect-[500] basis-0 min-w-[240px] max-md:max-w-full"
-                    />
+              {dataSimDetail?.sim?.sim_type === "attractive_sim" ? (
+                <div className="flex flex-col mt-4 w-full max-md:max-w-full">
+                  <div className="flex gap-4 items-center justify-between w-full font-semibold max-md:max-w-full">
+                    <div className="self-stretch my-auto text-lg leading-loose text-[#626D7C]">
+                      Tổng tiền
+                    </div>
+                    <div className=" shrink self-stretch my-auto text-3xl leading-none text-[#C32518]">
+                      ₫{" "}
+                      {currencyConverter(
+                        (flashSaleData?.flashSaleItems?.[0]?.percent
+                          ? dataSimDetail?.price
+                          : dataSimDetail?.discount_price) +
+                          (!dataSimDetail?.sim?.price_term
+                            ? Number(
+                                dataPeriodPackageAttractiveSelected?.discount_price
+                              ) || 0
+                            : 0)
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-center justify-between mt-1 w-full text-base max-md:max-w-full">
+                    <div className="self-stretch my-auto font-semibold text-[#626D7C]">
+                      Giá Sim
+                    </div>
+                    <div className=" shrink self-stretch my-auto font-medium text-black">
+                      ₫{" "}
+                      {flashSaleData?.flashSaleItems?.[0]?.percent
+                        ? currencyConverter(dataSimDetail?.price)
+                        : currencyConverter(dataSimDetail?.discount_price)}
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-center justify-between mt-1 w-full text-base max-md:max-w-full">
+                    <div className="self-stretch my-auto font-semibold text-[#626D7C]">
+                      Giá gói cước
+                    </div>
+                    <div className=" shrink self-stretch my-auto font-medium text-black">
+                      ₫{" "}
+                      {currencyConverter(
+                        !dataSimDetail?.sim?.price_term
+                          ? Number(
+                              dataPeriodPackageAttractiveSelected?.discount_price
+                            ) || 0
+                          : 0
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex flex-col mt-4 w-full max-md:max-w-full">
-                <div className="flex gap-4 items-center w-full font-semibold max-md:max-w-full">
-                  <div className="self-stretch my-auto text-lg leading-loose text-gray-500">
-                    Tổng tiền
+              ) : dataSimDetail?.sim?.sim_type === "packaged_sim" ? (
+                <div className="flex flex-col mt-4 w-full max-md:max-w-full">
+                  <div className="flex gap-4 items-center justify-between w-full font-semibold max-md:max-w-full">
+                    <div className="self-stretch my-auto text-lg leading-loose text-[#626D7C]">
+                      Tổng tiền
+                    </div>
+                    <div className=" shrink self-stretch my-auto text-3xl leading-none text-[#C32518]">
+                      ₫{" "}
+                      {currencyConverter(
+                        (flashSaleData?.flashSaleItems?.[0]?.percent
+                          ? dataSimDetail?.price
+                          : dataSimDetail?.discount_price) + packagePrice
+                      )}
+                    </div>
                   </div>
-                  <div className="flex-1 shrink self-stretch my-auto text-3xl leading-none text-red-700 min-w-[240px]">
-                    ₫ 150,000
+                  <div className="flex gap-4 items-center justify-between mt-1 w-full text-base max-md:max-w-full">
+                    <div className="self-stretch my-auto font-semibold text-[#626D7C]">
+                      Giá Sim
+                    </div>
+                    <div className=" shrink self-stretch my-auto font-medium text-black">
+                      ₫{" "}
+                      {currencyConverter(
+                        flashSaleData?.flashSaleItems?.[0]?.percent
+                          ? dataSimDetail?.price
+                          : dataSimDetail?.discount_price
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-center justify-between mt-1 w-full text-base max-md:max-w-full">
+                    <div className="self-stretch my-auto font-semibold text-[#626D7C]">
+                      Giá gói cước
+                    </div>
+                    <div className=" shrink self-stretch my-auto font-medium text-black">
+                      ₫ {currencyConverter(packagePrice)}
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-4 items-center mt-1 w-full text-base max-md:max-w-full">
-                  <div className="self-stretch my-auto font-semibold text-gray-500">
-                    Giá Sim
-                  </div>
-                  <div className="flex-1 shrink self-stretch my-auto font-medium text-black min-w-[240px]">
-                    ₫ 100,000
-                  </div>
-                </div>
-                <div className="flex gap-4 items-center mt-1 w-full text-base max-md:max-w-full">
-                  <div className="self-stretch my-auto font-semibold text-gray-500">
-                    Giá gói cước
-                  </div>
-                  <div className="flex-1 shrink self-stretch my-auto font-medium text-black min-w-[240px]">
-                    ₫ 50,000
-                  </div>
-                </div>
-              </div>
+              ) : null}
             </div>
-            <button className="flex overflow-hidden justify-center items-center p-3 mt-6 w-full text-base font-semibold text-white bg-amber-400 rounded-lg min-h-[48px] max-md:max-w-full">
+            <a
+              href={`https://simplus.vn/sim-detail/${dataSimDetail?.sim.number}`}
+              target="_blank"
+              className="flex overflow-hidden justify-center items-center p-3 mt-6 w-full text-base font-semibold text-white bg-amber-400 rounded-lg min-h-[48px] max-md:max-w-full"
+            >
               <div className="self-stretch px-2 my-auto">Mua ngay</div>
-            </button>
+            </a>
           </div>
         </div>
-        <button className="flex overflow-hidden justify-center items-center self-start p-3 rounded-lg min-h-[48px]">
+        <button onClick={() => setIsOpen(false)} className="absolute top-[8px] right-[8px] flex overflow-hidden justify-center items-center self-start p-3 rounded-lg min-h-[48px]">
           <img
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/633de52e979ad82125ed9127f963529f208227e53c090ea9c52e0f1065c8337c?placeholderIfAbsent=true&apiKey=ee84bb512d1340b98ec83662137fe9b7"
+            src={"/099-landingpage/close.svg"}
             alt=""
             className="object-contain self-stretch my-auto w-6 aspect-square"
           />
