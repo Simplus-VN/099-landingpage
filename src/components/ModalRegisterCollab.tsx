@@ -28,7 +28,7 @@ function ModalRegisterCollab(props: ModalRegisterCollabProps) {
                 email: formValues?.email,
                 phone_number: formValues?.phone,
                 title: 'Ticket Đăng ký CTV Gmobile',
-                description: `Họ Tên: ${formValues?.name}<br>Ngày sinh: ${dobFormatted}<br>Email: ${formValues?.email}<br>Điện thoại: ${formValues?.phone}<br>Ghi chú: ${formValues?.note}`,
+                description: `Họ Tên: ${formValues?.name}<br>Ngày sinh: ${dobFormatted}<br>Email: ${formValues?.email}<br>Điện thoại: ${formValues?.phone}<br>Ghi chú: ${formValues?.note || ''}`,
             })
             registerCollabForm.resetFields()
             message.success('Đăng ký CTV thành công. Chúng tôi sẽ liên hệ với bạn sớm nhất có thể!')

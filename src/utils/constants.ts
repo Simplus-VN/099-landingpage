@@ -29,3 +29,9 @@ export const FORM_RULES: Record<string, Rule[]> = {
 }
 
 export const BASE_API_URL = "https://customer-api.simplus.vn"
+export const SOCIAL_LINKS = {
+    TIKTOK: 'https://www.tiktok.com/@simplus_dungrededang',
+    YOUTUBE: 'https://www.youtube.com/channel/UCs4oD8qZ0dtCnS5Ohsgk3tg',
+    FACEBOOK: 'https://www.facebook.com/simplus.net.vn/',
+    ZALO: 'https://zalo.me/0394516666',
+}

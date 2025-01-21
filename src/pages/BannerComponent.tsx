@@ -67,7 +67,7 @@ const BannerComponent: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className='max-h-[calc(100vh-72px)]'>
       <Swiper
         loop={true}
         ref={swiperRef}
