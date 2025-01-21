@@ -5,7 +5,7 @@ import FooterComponent from "./components/FooterComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import BannerComponent from "./pages/BannerComponent";
 import PartnershipComponent from "./pages/PartnershipComponent";
-import SimListComponent from "./pages/SimList/SimListComponent";
+import { SimList } from "./pages/SimList";
 
 
 type ThemeData = {
@@ -66,7 +66,7 @@ function App() {
         <HeaderComponent />
         <BannerComponent />
         <div className="container mx-auto px-4">
-          <SimListComponent />
+          <SimList />
           <PartnershipComponent />
         </div>
         <FooterComponent />

@@ -27,3 +27,5 @@ export const FORM_RULES: Record<string, Rule[]> = {
     }],
     NOTE: [],
 }
+
+export const BASE_API_URL = "https://customer-api.simplus.vn"
