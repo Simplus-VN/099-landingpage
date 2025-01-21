@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from "react";
-import { DropdownSelect } from "./DropdownSelect";
 import { Modal, Select } from "antd";
 import { ModalDetailProps } from "./types";
 import { currencyConverter } from "../../../utils";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ModalDetail: React.FC<ModalDetailProps> = ({
   dataSimDetail,
