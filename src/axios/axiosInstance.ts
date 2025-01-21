@@ -10,6 +10,7 @@ import { get, KEYS } from "../utils/localStorage";
 
 const axiosInstance: AxiosInstance = axios.create({
   // baseURL: 'http://localhost:3000',
+  baseURL: 'https://customer-api-dev.simplus.space',
   httpsAgent: false, // Disable HTTPS
   headers: {
     "Content-Type": "application/json",
