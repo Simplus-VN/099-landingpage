@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DropdownProps } from './types';
+import { getAssetPath } from '../../../utils/path';
 
 export const DropdownSelect: React.FC<DropdownProps> = ({ label, value, icon }) => (
   <div className="flex flex-col flex-1 shrink justify-center basis-0">
@@ -9,7 +10,7 @@ export const DropdownSelect: React.FC<DropdownProps> = ({ label, value, icon }) 
         <div className="self-stretch px-2 my-auto">{value}</div>
         <img
           loading="lazy"
-          src={icon}
+          src={getAssetPath(icon)}
           alt=""
           className="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
         />

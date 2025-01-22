@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavigationButtonProps } from "./types";
+import { getAssetPath } from "../../utils/path";
 
 export const NavigationButton: React.FC<NavigationButtonProps> = ({
   iconUrl,
@@ -17,7 +18,7 @@ export const NavigationButton: React.FC<NavigationButtonProps> = ({
       >
         <img
           loading="lazy"
-          src={iconUrl}
+          src={getAssetPath(iconUrl)}
           alt=""
           className="object-contain w-full aspect-square"
         />

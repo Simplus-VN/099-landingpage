@@ -5,12 +5,12 @@ function SimSkeleton() {
       {Array(9)
         .fill(null)
         .map((_) => (
-          <div className="cursor-pointer flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] w-[333px] max-md:px-5 max-md:max-w-[166px]">
+          <div className="cursor-pointer flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] w-[333px] max-md:px-5 max-md:max-w-[48%]">
             <div className="object-contain w-full rounded-md aspect-square"></div>
             <div className="flex flex-col mt-6 w-full">
-              <div className="rounded animate-pulse bg-slate-200 w-[160px] h-[30px]"></div>
+              <div className="rounded animate-pulse bg-slate-200 w-[160px] max-md:w-full h-[30px]"></div>
               <div className="mt-3 font-semibold leading-none text-black">
-                <div className="rounded animate-pulse bg-slate-200 w-[200px] h-[36px]"></div>
+                <div className="rounded animate-pulse bg-slate-200 w-[200px] max-md:w-full h-[36px]"></div>
               </div>
               <div className="flex flex-col mt-3 w-full font-semibold leading-none">
                 <div className="flex gap-2 items-start w-full">
@@ -22,10 +22,10 @@ function SimSkeleton() {
               </div>
               <div className="flex flex-col justify-center mt-3 w-full">
                 <div className=" font-semibold leading-none text-[#C32518]">
-                  <div className="rounded animate-pulse bg-slate-200 w-[200px] h-[24px]"></div>
+                  <div className="rounded animate-pulse bg-slate-200 w-[200px] max-md:w-full h-[24px]"></div>
                 </div>
                 <div className="mt-1 font-medium leading-none text-[#4C5563] line-through">
-                  <div className="rounded animate-pulse bg-slate-200 w-[200px] h-[14px]"></div>
+                  <div className="rounded animate-pulse bg-slate-200 w-[200px] max-md:w-full h-[14px]"></div>
                 </div>
               </div>
             </div>

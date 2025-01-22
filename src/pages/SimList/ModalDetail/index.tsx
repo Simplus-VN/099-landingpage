@@ -5,6 +5,7 @@ import { Modal, Select } from "antd";
 import { ModalDetailProps } from "./types";
 import { currencyConverter } from "../../../utils";
 import { useEffect, useState } from "react";
+import { getAssetPath } from "../../../utils/path";
 
 export const ModalDetail: React.FC<ModalDetailProps> = ({
   dataSimDetail,
@@ -84,7 +85,7 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
         <div className="flex flex-wrap flex-auto gap-6 items-start self-end max-md:max-w-full">
           <img
             loading="lazy"
-            src={"/099-landingpage/gmobile-img.png"}
+            src={getAssetPath("/099-landingpage/gmobile-img.png")}
             alt="Sim card preview"
             className="object-contain rounded-md aspect-square w-[232px] max-md:w-full"
           />
@@ -97,7 +98,7 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
                 <div className="flex overflow-hidden justify-center items-center self-start p-1 my-[16px] text-sm font-semibold leading-none text-[#3259E8] bg-[#C8DBFF] rounded border border-[#9EBCFF] border-solid">
                   <img
                     loading="lazy"
-                    src="/099-landingpage/discount.svg"
+                    src={getAssetPath("/099-landingpage/discount.svg")}
                     alt=""
                     className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
                   />
@@ -322,7 +323,7 @@ export const ModalDetail: React.FC<ModalDetailProps> = ({
         <button onClick={() => setIsOpen(false)} className="absolute top-[8px] right-[8px] flex overflow-hidden justify-center items-center self-start p-3 rounded-lg min-h-[48px]">
           <img
             loading="lazy"
-            src={"/099-landingpage/close.svg"}
+            src={getAssetPath("/099-landingpage/close.svg")}
             alt=""
             className="object-contain self-stretch my-auto w-6 aspect-square"
           />

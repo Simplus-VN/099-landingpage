@@ -179,7 +179,7 @@ export const SimList: React.FC = () => {
   }, [isOpenDetail]);
 
   return (
-    <div className="flex overflow-hidden flex-col px-16 pt-20 pb-16 max-md:px-5">
+    <div className="flex overflow-hidden flex-col px-16 pt-20 pb-16 max-md:px-0">
       <div className="gap-10 text-center self-stretch w-full text-6xl font-semibold leading-none text-black max-md:max-w-full max-md:text-4xl">
         Danh sách Sim
       </div>

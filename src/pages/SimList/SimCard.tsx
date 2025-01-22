@@ -1,5 +1,6 @@
 import * as React from "react";
 import { SimCardProps } from "./types";
+import { getAssetPath } from "../../utils/path";
 
 export const SimCard: React.FC<SimCardProps> = ({
   discount,
@@ -12,10 +13,10 @@ export const SimCard: React.FC<SimCardProps> = ({
   onClickSim
 }) => {
   return (
-    <div onClick={onClickSim} className="cursor-pointer flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] w-[333px] max-md:px-5 max-md:max-w-[166px]">
+    <div onClick={onClickSim} className="cursor-pointer flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] w-[333px] max-md:px-5 max-md:max-w-[48%]">
       <img
         loading="lazy"
-        src={imageUrl}
+        src={getAssetPath(imageUrl)}
         alt="Sim card preview"
         className="object-contain w-full rounded-md aspect-square"
       />
@@ -23,7 +24,7 @@ export const SimCard: React.FC<SimCardProps> = ({
         <div className="flex overflow-hidden justify-center items-center self-start p-1 text-sm font-semibold leading-none text-[#3259E8] bg-[#C8DBFF] rounded border border-[#9EBCFF] border-solid">
           <img
             loading="lazy"
-            src={discountIconUrl}
+            src={getAssetPath(discountIconUrl)}
             alt=""
             className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
           />
@@ -31,7 +32,7 @@ export const SimCard: React.FC<SimCardProps> = ({
             Tiết kiệm ₫ {discount.toLocaleString()}{" "}
           </div>
         </div>
-        <div className="mt-3 text-4xl max-md:text-2xl font-semibold leading-none text-black">
+        <div className="mt-3 text-4xl max-md:text-xl font-semibold leading-none text-black">
           {phoneNumber}
         </div>
         <div className="flex flex-col mt-3 w-full text-sm max-md:text-xs font-semibold leading-none">
