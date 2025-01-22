@@ -179,21 +179,21 @@ export const SimList: React.FC = () => {
   }, [isOpenDetail]);
 
   return (
-    <div className="flex overflow-hidden flex-col px-16 pt-20 pb-16 max-md:px-0">
+    <div className="flex overflow-hidden flex-col px-16 pt-20 pb-16 max-md:px-0 max-md:pt-[32px]">
       <div className="gap-10 text-center self-stretch w-full text-6xl font-semibold leading-none text-black max-md:max-w-full max-md:text-4xl">
         Danh sách Sim
       </div>
-      <div className="flex flex-wrap gap-[40px] justify-center items-start self-center mt-12 max-w-full text-xl font-semibold leading-snug text-center text-gray-500  max-md:mt-10">
+      <div className="flex flex-wrap gap-[40px] justify-center items-start self-center mt-12 max-md:mt-[32px] max-w-full text-xl max-md:text-sm font-semibold leading-snug text-center text-gray-500 ">
         {types.map((item) => (
           <div
             key={item.name}
             onClick={() => handleChangeType(item)}
-            className="cursor-pointer flex relative flex-1 shrink justify-center items-start py-6 text-black basis-0 w-[154px]"
+            className="cursor-pointer flex relative flex-1 shrink justify-center items-start py-6 max-md:py-2 text-black basis-0 w-[154px] max-md:w-[75px]"
           >
             <div className="gap-2.5 self-stretch my-auto">{item.name}</div>
             {type.type === item.type && (
               <div
-                className="left-[50%] flex absolute inset-x-0 bottom-0 z-0 shrink-0 self-start h-0.5 bg-[#FFC426] w-[154px]"
+                className="left-[50%] flex absolute inset-x-0 bottom-0 z-0 shrink-0 self-start h-0.5 bg-[#FFC426] w-[154px] max-md:w-full"
                 style={{ transform: "translateX(-50%)" }}
               />
             )}
