@@ -69,7 +69,13 @@ function ModalRegisterCollab(props: ModalRegisterCollabProps) {
                     name='dob'
                     rules={FORM_RULES.DOB}
                 >
-                    <DatePicker format='DD/MM/YYYY' size='large' placeholder='dd/mm/yyyy' className='w-full' />
+                    <DatePicker
+                      format='DD/MM/YYYY'
+                      size='large'
+                      placeholder='dd/mm/yyyy'
+                      className='w-full'
+                      disabledDate={(current) => current && current > dayjs().endOf('day')}
+                    />
                 </Form.Item>
                 <Form.Item
                     label='Email'
