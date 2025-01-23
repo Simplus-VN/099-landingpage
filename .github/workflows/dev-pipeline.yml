@@ -6,7 +6,7 @@ env:
   OPERATOR_TOKEN: ${{ secrets.OPERATOR_TOKEN }}
 on:
   push:
-    branches: [feature/create-ci]
+    branches: [develop]
 
 jobs:
   dockerize-dev:
