@@ -45,6 +45,6 @@ jobs:
   #       body=$(printf '{"workload":"%s", "sandboxes":"%s", "imageUrls":"%s-%s"}' ${WORKLOAD} ${SANDBOXES} ${IMAGE_REPO} ${IMAGE_TAG})
   #       authent_header="Authorization: Bearer ${OPERATOR_TOKEN}"
   #       echo $body
-        http_code=$(curl --silent --output response_content --write-out "%{http_code}" -X 'POST' -H "${authent_header}" "${WORKFLOW_MANAGER_ENDPOINT}" -d "${body}" )
-        echo -e "`cat response_content`"
-        if test $http_code -ne 200; then return 1; fi
+        # http_code=$(curl --silent --output response_content --write-out "%{http_code}" -X 'POST' -H "${authent_header}" "${WORKFLOW_MANAGER_ENDPOINT}" -d "${body}" )
+        # echo -e "`cat response_content`"
+        # if test $http_code -ne 200; then return 1; fi
