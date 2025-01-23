@@ -31,20 +31,20 @@ jobs:
         docker build . -t ${IMAGE_REPO}-${IMAGE_TAG} -f dockerfile.prod
         docker push ${IMAGE_REPO}-${IMAGE_TAG}
     
-  deploy-dev:
-    runs-on: self-hosted
-    needs: dockerize-dev
-    environment: general
-    env:
-      WORKLOAD: lucas-gitops/simplus-workload-dev
-      SANDBOXES: dev
-    steps:
-    - name: Deploy version to dev cluster
-      run: |
-        IMAGE_TAG=d-${GITHUB_SHA:0:7}
-        body=$(printf '{"workload":"%s", "sandboxes":"%s", "imageUrls":"%s-%s"}' ${WORKLOAD} ${SANDBOXES} ${IMAGE_REPO} ${IMAGE_TAG})
-        authent_header="Authorization: Bearer ${OPERATOR_TOKEN}"
-        echo $body
-        http_code=$(curl --silent --output response_content --write-out "%{http_code}" -X 'POST' -H "${authent_header}" "${WORKFLOW_MANAGER_ENDPOINT}" -d "${body}" )
-        echo -e "`cat response_content`"
-        if test $http_code -ne 200; then return 1; fi
+  # deploy-dev:
+  #   runs-on: self-hosted
+  #   needs: dockerize-dev
+  #   environment: general
+  #   env:
+  #     WORKLOAD: lucas-gitops/simplus-workload-dev
+  #     SANDBOXES: dev
+  #   steps:
+  #   - name: Deploy version to dev cluster
+  #     run: |
+  #       IMAGE_TAG=d-${GITHUB_SHA:0:7}
+  #       body=$(printf '{"workload":"%s", "sandboxes":"%s", "imageUrls":"%s-%s"}' ${WORKLOAD} ${SANDBOXES} ${IMAGE_REPO} ${IMAGE_TAG})
+  #       authent_header="Authorization: Bearer ${OPERATOR_TOKEN}"
+  #       echo $body
+  #       http_code=$(curl --silent --output response_content --write-out "%{http_code}" -X 'POST' -H "${authent_header}" "${WORKFLOW_MANAGER_ENDPOINT}" -d "${body}" )
+  #       echo -e "`cat response_content`"
+  #       if test $http_code -ne 200; then return 1; fi
