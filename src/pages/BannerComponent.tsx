@@ -6,7 +6,6 @@ import { Button, Image } from "antd";
 import { Navigation, Pagination } from "swiper/modules";
 import { useEffect } from "react";
 import ModalRegisterCollab from "../components/ModalRegisterCollab.tsx";
-import { getAssetPath } from "../utils/path.ts";
 
 // BannerComponent component
 const BannerComponent: React.FC = () => {
@@ -32,7 +31,7 @@ const BannerComponent: React.FC = () => {
         "-top-0.5",
         "mr-4"
       );
-      prevButton.setAttribute("src", getAssetPath("/img/prev-slide.svg"));
+      prevButton.setAttribute("src", "/img/prev-slide.svg");
       prevButton.addEventListener("click", () => {
         if (swiperRef.current) {
           swiperRef.current.swiper.slidePrev();
@@ -54,7 +53,7 @@ const BannerComponent: React.FC = () => {
         "-top-0.5",
         "ml-4"
       );
-      nextButton.setAttribute("src", getAssetPath("/img/next-slide.svg"));
+      nextButton.setAttribute("src", "/img/next-slide.svg");
       nextButton.addEventListener("click", () => {
         if (swiperRef.current) {
           swiperRef.current.swiper.slideNext();
@@ -84,14 +83,14 @@ const BannerComponent: React.FC = () => {
         <SwiperSlide>
           <div className="relative">
             <Image
-              src={getAssetPath("/img/Background.png")}
+              src={"/img/Background.png"}
               preview={false}
               alt="banner"
               className="hidden sm:block max-h-[calc(100vh-72px)] w-[100vw] object-cover" 
               style={{ width: '100vw' }}
             />
             <Image
-              src={getAssetPath("/img/Background-mb.png")}
+              src={"/img/Background-mb.png"}
               preview={false}
               alt="banner"
               className="block sm:hidden"
@@ -116,7 +115,7 @@ const BannerComponent: React.FC = () => {
               </div>
               <div className="flex-1  flex-shrink-0">
                 <Image
-                  src={getAssetPath("/img/059-099.png")}
+                  src={"/img/059-099.png"}
                   className="w-full"
                   preview={false}
                   alt="059-099"
@@ -128,7 +127,7 @@ const BannerComponent: React.FC = () => {
         <SwiperSlide>
           <div className="relative">
             <Image
-              src={getAssetPath("/img/Background-2.png")}
+              src={"/img/Background-2.png"}
               preview={false}
               alt="banner"
               className="hidden sm:block max-h-[calc(100vh-72px)] w-[100vw] object-cover"
@@ -136,7 +135,7 @@ const BannerComponent: React.FC = () => {
 
             />
             <Image
-              src={getAssetPath("/img/Background-2-mb.png")}
+              src={"/img/Background-2-mb.png"}
               preview={false}
               alt="banner"
               className="block sm:hidden"
@@ -160,7 +159,7 @@ const BannerComponent: React.FC = () => {
               </div>
               <div className="flex-1  flex-shrink-0">
                 <Image
-                  src={getAssetPath("/img/Small-background-2.png")}
+                  src={"/img/Small-background-2.png"}
                   className="w-full"
                   preview={false}
                   alt="059-099"

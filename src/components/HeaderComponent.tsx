@@ -1,5 +1,4 @@
 import React from "react";
-import { getAssetPath } from "../utils/path";
 
 const HeaderComponent: React.FC = () => {
   return (
@@ -7,7 +6,7 @@ const HeaderComponent: React.FC = () => {
       <div className="container mx-auto ">
         <img
           className="h-[48px] max-lg:h-[40px]"
-          src={getAssetPath("/main-logo.png")}
+          src={"/main-logo.png"}
           alt="main-logo"
         />
       </div>

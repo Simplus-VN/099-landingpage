@@ -1,6 +1,5 @@
 import * as React from "react";
 import { SimCardProps } from "./types";
-import { getAssetPath } from "../../utils/path";
 
 export const SimCard: React.FC<SimCardProps> = ({
   discount,
@@ -16,7 +15,7 @@ export const SimCard: React.FC<SimCardProps> = ({
     <div onClick={onClickSim} className="cursor-pointer flex flex-col grow shrink self-stretch p-6 my-auto rounded-xl bg-[#F7F8FB] w-[333px] max-md:px-5 max-md:max-w-[48%]">
       <img
         loading="lazy"
-        src={getAssetPath(imageUrl)}
+        src={imageUrl}
         alt="Sim card preview"
         className="object-contain w-full rounded-md aspect-square"
       />
@@ -24,7 +23,7 @@ export const SimCard: React.FC<SimCardProps> = ({
         <div className="flex overflow-hidden justify-center items-center self-start p-1 text-sm font-semibold leading-none text-[#3259E8] bg-[#C8DBFF] rounded border border-[#9EBCFF] border-solid">
           <img
             loading="lazy"
-            src={getAssetPath(discountIconUrl)}
+            src={discountIconUrl}
             alt=""
             className="object-contain shrink-0 self-stretch my-auto w-5 aspect-square"
           />

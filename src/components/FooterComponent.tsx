@@ -1,5 +1,4 @@
 import React from "react";
-import { getAssetPath } from "../utils/path";
 import {SOCIAL_LINKS} from "../utils/constants.ts";
 
 const FooterComponent: React.FC = () => {
@@ -11,7 +10,7 @@ const FooterComponent: React.FC = () => {
             <div className="flex gap-[8px] items-center mb-[16px] max-lg:mx-[10px]">
               <img
                 className="h-[40px]"
-                src={getAssetPath("/main-logo.png")}
+                src={"/main-logo.png"}
                 alt="logo"
               />
               <svg
@@ -28,7 +27,7 @@ const FooterComponent: React.FC = () => {
               </svg>
               <img
                 className="h-[40px]"
-                src={getAssetPath("/gmobile-logo.png")}
+                src={"/gmobile-logo.png"}
                 alt="gmobile-logo"
               />
             </div>
