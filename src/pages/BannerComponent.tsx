@@ -87,7 +87,8 @@ const BannerComponent: React.FC = () => {
               src={getAssetPath("/img/Background.png")}
               preview={false}
               alt="banner"
-              className="hidden sm:block"
+              className="hidden sm:block max-h-[calc(100vh-72px)] w-[100vw] object-cover" 
+              style={{ width: '100vw' }}
             />
             <Image
               src={getAssetPath("/img/Background-mb.png")}
@@ -130,7 +131,9 @@ const BannerComponent: React.FC = () => {
               src={getAssetPath("/img/Background-2.png")}
               preview={false}
               alt="banner"
-              className="hidden sm:block"
+              className="hidden sm:block max-h-[calc(100vh-72px)] w-[100vw] object-cover"
+              style={{ width: '100vw' }}
+
             />
             <Image
               src={getAssetPath("/img/Background-2-mb.png")}

@@ -32,7 +32,9 @@ body {
   background: rgb(226 232 240) !important;
   background-color: rgb(226 232 240) !important;
 }
-
+.swiper-pagination {
+  padding: 48px
+}
 footer {
   .company-text {
     font-size: 20px;
