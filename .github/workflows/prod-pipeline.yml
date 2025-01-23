@@ -1,7 +1,7 @@
 name: CI/CD pipeline
 
 env:
-  IMAGE_REPO: 397solution/simplus:landing-page-tourist
+  IMAGE_REPO: 397solution/simplus:099-landing-page
   WORKFLOW_MANAGER_ENDPOINT: https://iqx3y7gabke536fvzalpxfm26y0dpsjs.lambda-url.us-east-1.on.aws
   OPERATOR_TOKEN: ${{ secrets.OPERATOR_TOKEN }}
 on:
