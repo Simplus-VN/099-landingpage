@@ -22,7 +22,7 @@ const PartnershipComponent: React.FC = () => {
           pariatur.
         </p>
         <Image
-          src={getAssetPath("/img/Background.png")}
+          src={getAssetPath("/img/collab-banner-1.png")}
           preview={false}
           alt="banner"
           className="lg:mt-12 mt-8 rounded-corner-04"
@@ -51,7 +51,7 @@ const PartnershipComponent: React.FC = () => {
         </div>
         <div className="flex-1 flex-shink-0">
           <Image
-            src={getAssetPath("/img/Background.png")}
+            src={getAssetPath("/img/collab-banner-2.png")}
             preview={false}
             alt="banner"
             className="rounded-corner-04 w-full aspect-[4/3] object-cover"
@@ -81,7 +81,7 @@ const PartnershipComponent: React.FC = () => {
         </div>
         <div className="flex-1 flex-shink-0">
           <Image
-            src={getAssetPath("/img/Background.png")}
+            src={getAssetPath("/img/collab-banner-3.png")}
             preview={false}
             alt="banner"
             className="rounded-corner-04 w-full aspect-[4/3] object-cover"
